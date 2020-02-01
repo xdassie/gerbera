@@ -1,5 +1,5 @@
 FROM alpine:3.11
-RUN apk update && apk add --upgrade --no-cache tini gcc g++ pkgconf make automake autoconf libtool \
+RUN apk update && apk add --upgrade --no-cache git tini gcc g++ pkgconf make automake autoconf libtool \
 	util-linux-dev sqlite-dev mariadb-connector-c-dev cmake zlib-dev fmt-dev \
 	file-dev libexif-dev curl-dev ffmpeg-dev ffmpegthumbnailer-dev wget xz \
 	libmatroska-dev libebml-dev taglib-dev
