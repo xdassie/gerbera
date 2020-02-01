@@ -4,11 +4,11 @@ RUN apk update && apk add --upgrade --no-cache git tini gcc g++ pkgconf make aut
 	file-dev libexif-dev curl-dev ffmpeg-dev ffmpegthumbnailer-dev wget xz \
 	libmatroska-dev libebml-dev taglib-dev
 
+WORKDIR /gerbera_build
+
 RUN git clone https://github.com/gerbera/gerbera.git
 
-WORKDIR /gerbera_build/gerbera
-
-RUN mkdir build && \
+RUN cd gerbera && mkdir build && \
     cd build && \
     sh ../scripts/install-pugixml.sh && \
     sh ../scripts/install-pupnp.sh && \
