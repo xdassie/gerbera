@@ -21,7 +21,7 @@ RUN cd gerbera && mkdir build && \
     make install && \
     rm -rf /gerbera_build
 
-RUN adduser gerbera
+RUN adduser gerbera --disabled-password
 
 RUN mkdir -p /root/.config/gerbera &&\
     gerbera --create-config > /root/.config/gerbera/config.xml &&\
