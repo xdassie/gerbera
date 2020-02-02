@@ -25,7 +25,7 @@ RUN adduser gerbera --disabled-password
 
 USER gerbera
 COPY entrypoint.sh /gerbera/entrypoint.sh
-RUN mkdir -p /home/gerbera/.config/gerbera 
+RUN mkdir -p /home/gerbera/.config/gerbera && chmod 750  /gerbera/entrypoint.sh
 #    gerbera --create-config > /home/gerbera/.config/gerbera/config.xml &&\
 #    sed 's/<import hidden-files="no">/<import hidden-files="no">\n\
 #<autoscan use-inotify="yes">\n\
