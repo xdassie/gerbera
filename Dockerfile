@@ -33,7 +33,7 @@ USER 1001
 #<directory location="\/home\/gerbera" mode="inotify" level="full" \
 #recursive="yes" hidden-files="no"\/>\n\
 #<\/autoscan>/' -i /home/gerbera/.config/gerbera/config.xml
-VOLUME ["/home/gerbera"]
+
 EXPOSE 49152
 EXPOSE 1900/udp
 ENTRYPOINT ["/gerbera/entrypoint.sh"]
