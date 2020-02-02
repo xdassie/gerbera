@@ -24,7 +24,7 @@ RUN cd gerbera && mkdir build && \
 RUN adduser gerbera --disabled-password
 
 COPY entrypoint.sh /gerbera/entrypoint.sh
-RUN  chmod 750  /gerbera/entrypoint.sh
+RUN  chmod 750  /gerbera/entrypoint.sh && chown gerbera:root /gerbera/entrypoint.sh
 USER gerbera
 
 RUN mkdir -p /home/gerbera/.config/gerbera
