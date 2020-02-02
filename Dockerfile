@@ -36,4 +36,4 @@ EXPOSE 1900/udp
 
 USER gerbera
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD [ "gerbera","-p", "49152" ]
+CMD [ "gerbera","-p", "49152","--cfgdir","/gerbera/.config/gerbera/" ]
