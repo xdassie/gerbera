@@ -24,8 +24,8 @@ RUN cd gerbera && mkdir build && \
 RUN adduser gerbera --disabled-password
 
 USER gerbera
-COPY config.xml /home/gerbera/.config/gerbera/config.xml
-#RUN mkdir -p /home/gerbera/.config/gerbera &&\
+COPY entrypoint.sh /gerbera/entrypoint.sh
+RUN mkdir -p /home/gerbera/.config/gerbera 
 #    gerbera --create-config > /home/gerbera/.config/gerbera/config.xml &&\
 #    sed 's/<import hidden-files="no">/<import hidden-files="no">\n\
 #<autoscan use-inotify="yes">\n\
@@ -35,6 +35,6 @@ COPY config.xml /home/gerbera/.config/gerbera/config.xml
 
 EXPOSE 49152
 EXPOSE 1900/udp
-
-ENTRYPOINT ["/sbin/tini", "--"]
-CMD [ "gerbera","-p", "49152" ]
+ENTRYPOINT ["/gerbera/entrypoint.sh"]
+#ENTRYPOINT ["/sbin/tini", "--"]
+#CMD [ "gerbera","-p", "49152" ]
