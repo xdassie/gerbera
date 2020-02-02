@@ -27,14 +27,13 @@ COPY entrypoint.sh /gerbera/entrypoint.sh
 RUN  chmod 750  /gerbera/entrypoint.sh && chown -R gerbera:root /gerbera/entrypoint.sh /home/gerbera
 USER gerbera
 
-RUN mkdir -p /home/gerbera/.config/gerbera
 #    gerbera --create-config > /home/gerbera/.config/gerbera/config.xml &&\
 #    sed 's/<import hidden-files="no">/<import hidden-files="no">\n\
 #<autoscan use-inotify="yes">\n\
 #<directory location="\/home\/gerbera" mode="inotify" level="full" \
 #recursive="yes" hidden-files="no"\/>\n\
 #<\/autoscan>/' -i /home/gerbera/.config/gerbera/config.xml
-
+VOLUME ["/home/gerbera"]
 EXPOSE 49152
 EXPOSE 1900/udp
 ENTRYPOINT ["/gerbera/entrypoint.sh"]
