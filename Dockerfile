@@ -23,17 +23,17 @@ RUN cd gerbera && mkdir build && \
 
 RUN adduser gerbera --disabled-password
 
-RUN mkdir -p /gerbera/.config/gerbera &&\
-    gerbera --create-config > /gerbera/.config/gerbera/config.xml &&\
+RUN mkdir -p /home/gerbera/.config/gerbera &&\
+    gerbera --create-config > /home/gerbera/.config/gerbera/config.xml &&\
     sed 's/<import hidden-files="no">/<import hidden-files="no">\n\
 <autoscan use-inotify="yes">\n\
 <directory location="\/home\/gerbera" mode="inotify" level="full" \
 recursive="yes" hidden-files="no"\/>\n\
-<\/autoscan>/' -i /gerbera/.config/gerbera/config.xml
+<\/autoscan>/' -i /home/gerbera/.config/gerbera/config.xml
 
 EXPOSE 49152
 EXPOSE 1900/udp
 
 USER gerbera
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD [ "gerbera","-p", "49152","--cfgdir","/gerbera/.config/gerbera/" ]
+CMD [ "gerbera","-p", "49152" ]
